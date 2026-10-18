@@ -3,10 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lista A</title>
+  <meta name="description" content="Lista A — Ação UC, candidata pelos estudantes ao Conselho Geral da Universidade de Coimbra 2026.">
+  <meta name="theme-color" content="#072D33">
+  <title>Lista A — Ação UC · Conselho Geral 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;0,700;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Lista A</h1>
-  <p>Site em construção.</p>
+  <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
+
+  <header id="cabecalho">
+    <a class="marca" href="#inicio">
+      <span class="marca-letra">A</span>
+      <span class="marca-nome">Ação UC</span>
+    </a>
+    <nav id="menu">
+      <a href="#inicio">Início</a>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Equipa <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="#equipa">Os candidatos</a>
+          <a href="#apresentacao">A candidatura</a>
+        </div>
+      </div>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Manifesto <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="#manifesto">Em resumo</a>
+          <a href="manifesto.html">Manifesto completo</a>
+          <a href="manifesto.html#principios">Os nossos princípios</a>
+          <a href="manifesto.html#compromisso">O nosso compromisso</a>
+        </div>
+      </div>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Programa <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="#eixo-custo">Custo de vida</a>
+          <a href="#eixo-ensino">Ensino</a>
+          <a href="#eixo-participacao">Participação</a>
+          <a href="#eixo-bem-estar">Bem-estar</a>
+          <a href="#eixo-transparencia">Transparência</a>
+          <a href="#eixo-inclusao">Inclusão</a>
+        </div>
+      </div>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Informações <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="#como-votar">Como votar</a>
+          <a href="#onde-votar">Onde votar</a>
+          <a href="#contactos">Contactos</a>
+        </div>
+      </div>
+    </nav>
+    <div class="cabecalho-acoes">
+      <a class="contacto-ligacao" href="mailto:geral@acaouc-exemplo.pt">Contacta-nos</a>
+      <button class="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section id="inicio">
+    <div class="inicio-fundo"></div>
+    <div class="inicio-conteudo">
+      <p class="inicio-etiqueta">Eleições para o Conselho Geral · 2026</p>
+      <h1>Faz-te ouvir! <em>Faz a UC avançar!</em></h1>
+      <p class="inicio-texto">A Universidade é mais forte quando quem nela estuda participa nas decisões. Queremos levar ao Conselho Geral a voz real dos estudantes: o custo de vida, a qualidade do ensino e o bem-estar de todos.</p>
+      <div class="inicio-botoes">
+        <a class="botao botao-principal" href="#equipa">Conhece a equipa</a>
+        <a class="botao botao-secundario" href="#manifesto">As nossas ideias</a>
+      </div>
+      <a class="inicio-data" href="#informacoes">3 de dezembro · Sabe como votar</a>
+    </div>
+    <p class="inicio-rodape">Lista A — Estudantes · Universidade de Coimbra · 2026</p>
+  </section>
+
+  <main id="conteudo">
+    <section id="apresentacao" class="bloco">
+      <p class="bloco-etiqueta">A candidatura</p>
+      <div class="apresentacao-grelha">
+        <div>
+          <h2>A tua voz <em>faz a UC.</em></h2>
+          <p>Os estudantes são a maior parte da comunidade universitária, mas raramente são ouvidos quando se decide o futuro da UC. A Lista A quer mudar isso, com representantes presentes, informados e que prestam contas.</p>
+          <a class="botao-pagina" href="manifesto.html">Lê o manifesto</a>
+        </div>
+        <blockquote>Ouvir com atenção. Decidir com responsabilidade.</blockquote>
+      </div>
+    </section>
+
+    <section id="equipa" class="bloco">
+      <p class="bloco-etiqueta">As pessoas</p>
+      <h2>Uma equipa. <em>Uma comunidade.</em></h2>
+      <p class="bloco-intro">Seis estudantes de diferentes faculdades, prontos para representar a diversidade de quem estuda na UC.</p>
+      <div class="equipa-grelha">
+        <article class="candidato">
+          <div class="candidato-foto"><span>IM</span></div>
+          <h3>Inês Marques Ferreira</h3>
+          <p>Medicina · FMUC</p>
+        </article>
+        <article class="candidato">
+          <div class="candidato-foto"><span>TF</span></div>
+          <h3>Tiago Fonseca Almeida</h3>
+          <p>Engenharia Informática · FCTUC</p>
+        </article>
+        <article class="candidato">
+          <div class="candidato-foto"><span>BL</span></div>
+          <h3>Beatriz Lopes Carvalho</h3>
+          <p>Direito · FDUC</p>
+        </article>
+        <article class="candidato">
+          <div class="candidato-foto"><span>RS</span></div>
+          <h3>Rui Santos Pereira</h3>
+          <p>Economia · FEUC</p>
+        </article>
+        <article class="candidato">
+          <div class="candidato-foto"><span>CM</span></div>
+          <h3>Carolina Mendes Rocha</h3>
+          <p>Psicologia · FPCEUC</p>
+        </article>
+        <article class="candidato">
+          <div class="candidato-foto"><span>DN</span></div>
+          <h3>Diogo Nunes Silva</h3>
+          <p>Letras · FLUC</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="manifesto" class="bloco bloco-destaque">
+      <p class="bloco-etiqueta">O nosso compromisso</p>
+      <h2>Estudar aqui <em>é decidir aqui.</em></h2>
+      <p>Os estudantes são parte integrante da Universidade e devem participar ativamente na sua governação: com representação efetiva, acesso à informação e voz nos processos de decisão.</p>
+      <p>Defendemos uma Universidade próxima, acessível e exigente, que trata cada estudante como parte da solução.</p>
+      <a class="botao-pagina" href="manifesto.html">Ler o manifesto completo</a>
+    </section>
+
+    <section id="programa" class="bloco">
+      <p class="bloco-etiqueta">O nosso programa</p>
+      <h2>Uma visão. <em>Seis eixos de ação.</em></h2>
+      <p class="bloco-intro">Melhorar a vida de quem estuda, reforçar a participação e construir uma UC mais justa e transparente.</p>
+      <div class="programa-grelha">
+        <article class="eixo" id="eixo-custo">
+          <h3>Custo de vida</h3>
+          <p>Mais camas em residências, refeições acessíveis nas cantinas e apoio a quem vem de fora.</p>
+        </article>
+        <article class="eixo" id="eixo-ensino">
+          <h3>Ensino</h3>
+          <p>Avaliação pedagógica com consequências reais e programas atualizados.</p>
+        </article>
+        <article class="eixo" id="eixo-participacao">
+          <h3>Participação</h3>
+          <p>Estudantes ouvidos em cada decisão que os afeta, nas faculdades e na Reitoria.</p>
+        </article>
+        <article class="eixo" id="eixo-bem-estar">
+          <h3>Bem-estar</h3>
+          <p>Mais apoio psicológico, menos tempo de espera e espaços de estudo dignos.</p>
+        </article>
+        <article class="eixo" id="eixo-transparencia">
+          <h3>Transparência</h3>
+          <p>Relatórios públicos de cada reunião e contas prestadas a quem nos elegeu.</p>
+        </article>
+        <article class="eixo" id="eixo-inclusao">
+          <h3>Inclusão</h3>
+          <p>Acessibilidade em todos os edifícios e igualdade de oportunidades para todos.</p>
+        </article>
+      </div>
+      <p class="programa-fecho">Uma Universidade unida na sua missão, participada nas suas decisões e feita à medida de quem nela estuda.</p>
+    </section>
+
+    <section id="informacoes" class="bloco">
+      <p class="bloco-etiqueta">Para participar</p>
+      <h2>Informação clara. <em>Voto informado.</em></h2>
+      <p class="bloco-intro">Tudo o que precisas de saber para participar na eleição.</p>
+      <div class="info-grelha">
+        <a class="info-cartao" id="como-votar" href="#informacoes">
+          <strong>Como votar</strong>
+          <span>Urnas abertas a 3 de dezembro, das 9h às 19h. Leva o cartão de estudante ou o cartão de cidadão.</span>
+        </a>
+        <a class="info-cartao" id="onde-votar" href="#informacoes">
+          <strong>Onde votar</strong>
+          <span>Na mesa de voto da tua faculdade, normalmente junto à entrada principal.</span>
+        </a>
+        <a class="info-cartao" id="contactos" href="mailto:geral@acaouc-exemplo.pt">
+          <strong>Contactos da lista</strong>
+          <span>geral@acaouc-exemplo.pt</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="chamada">
+      <p class="inicio-etiqueta">Eleições · Conselho Geral · 2026</p>
+      <h2>Faz-te ouvir! <em>Faz a UC avançar!</em></h2>
+      <a class="botao botao-principal" href="manifesto.html">Conhece as nossas ideias</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="rodape-marca">
+      <span class="marca-letra">A</span>
+      <div>
+        <p>Lista A — Ação UC</p>
+        <p>Candidatura ao Conselho Geral da Universidade de Coimbra · 2026</p>
+      </div>
+    </div>
+    <a class="ligacao" href="#inicio">Voltar ao início</a>
+    <p class="rodape-credito">Fotografia de abertura: <a href="#">Nome do Autor</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>, adaptada.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
