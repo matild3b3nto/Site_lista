@@ -48,7 +48,12 @@ function fecharMenu() {
 
 function atualizarCabecalho() {
   const compacto = window.scrollY > 80 || ecraEstreito.matches;
-  cabecalho.classList.toggle("compacto", compacto);
+  if (compacto !== cabecalho.classList.contains("compacto")) {
+    cabecalho.classList.add("sem-transicao");
+    cabecalho.classList.toggle("compacto", compacto);
+    void cabecalho.offsetWidth;
+    requestAnimationFrame(() => cabecalho.classList.remove("sem-transicao"));
+  }
   if (!compacto) {
     fecharMenu();
   }

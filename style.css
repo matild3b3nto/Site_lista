@@ -276,6 +276,11 @@ nav > a:hover,
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
+#cabecalho.sem-transicao nav,
+#cabecalho.sem-transicao nav * {
+  transition: none !important;
+}
+
 #cabecalho.compacto .menu-botao {
   display: flex;
 }
