@@ -2,7 +2,7 @@ const cabecalho = document.getElementById("cabecalho");
 const menu = document.getElementById("menu");
 const menuBotao = document.querySelector(".menu-botao");
 
-const ecraEstreito = window.matchMedia("(max-width: 860px)");
+const ecraEstreito = window.matchMedia("(max-width: 1230px)");
 
 const grupos = document.querySelectorAll(".menu-grupo");
 
@@ -74,7 +74,7 @@ menu.querySelectorAll("a").forEach((ligacao) => {
 });
 
 const elementos = document.querySelectorAll(
-  ".bloco h2, .bloco-intro, .apresentacao-grelha, .candidato, .eixo, .info-cartao, .chamada h2, .pagina-seguinte-cartao"
+  ".bloco h2, .bloco-intro, .apresentacao-grelha, .conselho-composicao, .facto, .competencia, .candidato, .eixo, .info-cartao, .testemunhos-cartao, .testemunho, .chamada-cartao, .pagina-seguinte-cartao"
 );
 
 const observador = new IntersectionObserver((entradas) => {
@@ -114,3 +114,107 @@ if (ligacoesIndice.length > 0) {
     observadorIndice.observe(seccao);
   });
 }
+
+const URL_TESTEMUNHOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRbOKl3MzG0iKupV3dfKJN7K0Cjowpw09EPHcHfMGXc8lOzdaDjqH0VFg0I-Y3SVvgBho7_K1T6gXdT/pub?gid=1809321943&single=true&output=csv";
+const TESTEMUNHOS_VISIVEIS = 6;
+
+function lerCSV(texto) {
+  const linhas = [];
+  let linha = [];
+  let campo = "";
+  let entreAspas = false;
+
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (entreAspas) {
+      if (c === '"' && texto[i + 1] === '"') {
+        campo += '"';
+        i++;
+      } else if (c === '"') {
+        entreAspas = false;
+      } else {
+        campo += c;
+      }
+    } else if (c === '"') {
+      entreAspas = true;
+    } else if (c === ",") {
+      linha.push(campo);
+      campo = "";
+    } else if (c === "\n" || c === "\r") {
+      if (c === "\r" && texto[i + 1] === "\n") i++;
+      linha.push(campo);
+      linhas.push(linha);
+      linha = [];
+      campo = "";
+    } else {
+      campo += c;
+    }
+  }
+  if (campo !== "" || linha.length > 0) {
+    linha.push(campo);
+    linhas.push(linha);
+  }
+  return linhas;
+}
+
+function criarTestemunho({ texto, nome, curso }) {
+  const figura = document.createElement("figure");
+  figura.className = "testemunho";
+
+  const citacao = document.createElement("blockquote");
+  citacao.textContent = texto;
+
+  const legenda = document.createElement("figcaption");
+  const autor = document.createElement("strong");
+  autor.textContent = nome || "Anónimo";
+  legenda.append(autor);
+  if (curso) legenda.append(curso);
+
+  figura.append(citacao, legenda);
+  return figura;
+}
+
+async function carregarTestemunhos() {
+  const lista = document.querySelector(".testemunhos-lista");
+  const botao = document.querySelector(".testemunhos-mais");
+  if (!lista || !URL_TESTEMUNHOS.startsWith("http")) return;
+
+  try {
+    const resposta = await fetch(URL_TESTEMUNHOS, { cache: "no-store" });
+    if (!resposta.ok) return;
+
+    const [cabecalho, ...linhas] = lerCSV(await resposta.text());
+    const coluna = (nome) => cabecalho.findIndex((c) => c.trim().toLowerCase() === nome);
+    const iTexto = coluna("texto");
+    const iNome = coluna("nome");
+    const iCurso = coluna("curso");
+    if (iTexto === -1) return;
+
+    const testemunhos = linhas
+      .map((l) => ({
+        texto: (l[iTexto] || "").trim(),
+        nome: (l[iNome] || "").trim(),
+        curso: (l[iCurso] || "").trim(),
+      }))
+      .filter((t) => t.texto)
+      .reverse();
+
+    testemunhos.forEach((t, indice) => {
+      const cartao = criarTestemunho(t);
+      if (indice >= TESTEMUNHOS_VISIVEIS) cartao.hidden = true;
+      lista.append(cartao);
+    });
+
+    if (testemunhos.length > TESTEMUNHOS_VISIVEIS) {
+      botao.hidden = false;
+      botao.addEventListener("click", () => {
+        lista.querySelectorAll(".testemunho[hidden]").forEach((c) => (c.hidden = false));
+        botao.hidden = true;
+      });
+    }
+  } catch (erro) {
+    return;
+  }
+}
+
+carregarTestemunhos();
