@@ -183,7 +183,7 @@ nav > a:hover,
   flex-direction: column;
   padding: 0.6rem;
   border-radius: 14px;
-  background: color-mix(in srgb, var(--escuro) 96%, transparent);
+  background: var(--escuro);
   border: 1px solid color-mix(in srgb, var(--destaque) 25%, transparent);
   box-shadow: 0 20px 50px color-mix(in srgb, var(--sombra) 45%, transparent);
   opacity: 0;
@@ -252,9 +252,10 @@ nav > a:hover,
 }
 
 .menu-botao span {
-  width: 22px;
-  height: 2px;
-  background: var(--profundo);
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--escuro);
   transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
 }
 
@@ -263,7 +264,7 @@ nav > a:hover,
 }
 
 .menu-botao[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .menu-botao[aria-expanded="true"] span:nth-child(2) {
@@ -271,7 +272,7 @@ nav > a:hover,
 }
 
 .menu-botao[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 #cabecalho.sem-transicao nav,
@@ -295,7 +296,7 @@ nav > a:hover,
   gap: 0.2rem;
   padding: 1.2rem 1.4rem;
   border-radius: 16px;
-  background: color-mix(in srgb, var(--escuro) 97%, transparent);
+  background: var(--escuro);
   border: 1px solid color-mix(in srgb, var(--destaque) 25%, transparent);
   box-shadow: 0 20px 50px color-mix(in srgb, var(--sombra) 45%, transparent);
   opacity: 0;
@@ -371,7 +372,7 @@ nav > a:hover,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10rem 5% 5rem;
+  padding: 10rem 5% 9rem;
 }
 
 .inicio-fundo {
@@ -380,9 +381,9 @@ nav > a:hover,
   top: var(--altura-cabecalho, 6.7rem);
   z-index: -2;
   background: url("imagens/abertura.jpg") center / cover no-repeat;
+  filter: saturate(0.75);
 }
 
-#inicio::before,
 .pagina-topo::before {
   content: "";
   position: absolute;
@@ -398,13 +399,14 @@ nav > a:hover,
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, var(--escuro) 0%, transparent 25%),
+    linear-gradient(to bottom, transparent 55%, var(--profundo) 100%),
     radial-gradient(
-      ellipse 70% 60% at 50% 50%,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0.35) 60%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
+      ellipse 65% 55% at 50% 48%,
+      rgba(0, 18, 9, 0.55) 0%,
+      rgba(0, 18, 9, 0.2) 70%,
+      rgba(0, 18, 9, 0) 100%
+    ),
+    rgba(0, 18, 9, 0.35);
   pointer-events: none;
 }
 
@@ -520,15 +522,28 @@ nav > a:hover,
 }
 
 .inicio-botoes .botao-principal {
-  background: var(--escuro);
-  color: var(--texto);
-  box-shadow: 0 8px 22px color-mix(in srgb, var(--sombra) 35%, transparent);
+  background: var(--destaque);
+  color: var(--profundo);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .inicio-botoes .botao-principal:hover {
-  background: var(--profundo);
-  box-shadow: 0 12px 30px color-mix(in srgb, var(--sombra) 50%, transparent);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--destaque) 40%, transparent);
 }
+
+#inicio h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+#inicio .inicio-subtitulo,
+#inicio .inicio-etiqueta {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+#conteudo {
+  background: linear-gradient(to bottom, var(--profundo) 0, var(--escuro) 28rem);
+}
+
 
 .botao-secundario {
   border: 1.5px solid color-mix(in srgb, var(--texto) 60%, transparent);
@@ -537,6 +552,8 @@ nav > a:hover,
 
 .botao-secundario:hover {
   background: color-mix(in srgb, var(--texto) 12%, transparent);
+  border-color: var(--texto);
+  transform: translateY(-3px);
 }
 
 .inicio-data {
@@ -766,7 +783,7 @@ blockquote {
 
 .info-grelha {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 420px));
   gap: 1.5rem;
 }
 
@@ -1528,7 +1545,7 @@ footer,
   }
 
   .inicio-fundo {
-    background-position: left center;
+    background-position: 20% center;
   }
 
   .inicio-botoes {
@@ -1540,6 +1557,21 @@ footer,
     padding: 0.8rem 1.1rem;
     font-size: 0.95rem;
     white-space: nowrap;
+  }
+
+  .inicio-botoes::before {
+    content: "";
+    order: 0;
+    flex-basis: 100%;
+    margin-top: -0.6rem;
+  }
+
+  .inicio-botoes .botao-principal {
+    order: -1;
+  }
+
+  .inicio-botoes .botao-secundario {
+    order: 1;
   }
 
   .testemunhos-cartao {
