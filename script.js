@@ -59,9 +59,18 @@ function atualizarCabecalho() {
   }
 }
 
+function medirCabecalho() {
+  document.documentElement.style.setProperty("--altura-cabecalho", `${cabecalho.offsetHeight}px`);
+}
+
+new ResizeObserver(() => {
+  if (window.scrollY <= 80) medirCabecalho();
+}).observe(cabecalho, { box: "border-box" });
+
 window.addEventListener("scroll", atualizarCabecalho);
 ecraEstreito.addEventListener("change", atualizarCabecalho);
 atualizarCabecalho();
+medirCabecalho();
 
 menuBotao.addEventListener("click", () => {
   const aberto = menu.classList.toggle("aberto");

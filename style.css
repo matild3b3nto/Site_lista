@@ -377,9 +377,9 @@ nav > a:hover,
 .inicio-fundo {
   position: absolute;
   inset: 0;
+  top: var(--altura-cabecalho, 6.7rem);
   z-index: -2;
   background: url("imagens/abertura.jpg") center / cover no-repeat;
-  filter: grayscale(1) contrast(1.05) brightness(0.85);
 }
 
 #inicio::before,
@@ -389,8 +389,7 @@ nav > a:hover,
   inset: 0;
   z-index: -1;
   background: var(--escuro);
-  mix-blend-mode: color;
-  opacity: 0.35;
+  opacity: 0.2;
 }
 
 #inicio::after {
@@ -399,14 +398,13 @@ nav > a:hover,
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, var(--escuro) 0%, transparent 30%),
+    linear-gradient(to top, var(--escuro) 0%, transparent 25%),
     radial-gradient(
       ellipse 70% 60% at 50% 50%,
-      color-mix(in srgb, var(--escuro) 55%, black) 0%,
-      color-mix(in srgb, var(--escuro) 75%, transparent) 60%,
-      color-mix(in srgb, var(--escuro) 45%, transparent) 100%
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.35) 60%,
+      rgba(0, 0, 0, 0.15) 100%
     );
-  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -416,14 +414,13 @@ nav > a:hover,
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, var(--escuro) 0%, transparent 30%),
+    linear-gradient(to top, var(--escuro) 0%, transparent 25%),
     linear-gradient(
       100deg,
-      color-mix(in srgb, var(--escuro) 55%, black) 0%,
-      color-mix(in srgb, var(--escuro) 80%, transparent) 40%,
-      color-mix(in srgb, var(--escuro) 35%, transparent) 100%
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.15) 100%
     );
-  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -439,8 +436,51 @@ nav > a:hover,
   letter-spacing: 0.04em;
 }
 
+#inicio .inicio-etiqueta,
+.chamada .inicio-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--fonte-titulos);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+#inicio .inicio-etiqueta::before,
+#inicio .inicio-etiqueta::after,
+.chamada .inicio-etiqueta::before,
+.chamada .inicio-etiqueta::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--destaque);
+  transform: rotate(45deg);
+}
+
+.chamada .inicio-etiqueta::before,
+.chamada .inicio-etiqueta::after {
+  background: var(--escuro);
+}
+
+.inicio-subtitulo {
+  max-width: 36rem;
+  margin: 0 auto;
+  font-family: var(--fonte-texto);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-wrap: balance;
+  color: var(--texto-suave);
+}
+
+.chamada .inicio-subtitulo {
+  margin-bottom: 2.5rem;
+  color: color-mix(in srgb, var(--profundo) 85%, transparent);
+}
+
 #inicio h1 {
-  margin: 1rem 0 1.5rem;
+  margin: 1.2rem 0 1.2rem;
   font-size: clamp(2.8rem, 7vw, 5.8rem);
   color: var(--texto);
 }
@@ -477,6 +517,17 @@ nav > a:hover,
 .botao-principal:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px color-mix(in srgb, var(--destaque) 40%, transparent);
+}
+
+.inicio-botoes .botao-principal {
+  background: var(--escuro);
+  color: var(--texto);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--sombra) 35%, transparent);
+}
+
+.inicio-botoes .botao-principal:hover {
+  background: var(--profundo);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--sombra) 50%, transparent);
 }
 
 .botao-secundario {
@@ -592,7 +643,7 @@ blockquote {
 
 .equipa-grelha {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
@@ -643,7 +694,7 @@ blockquote {
 
 .candidato h3 {
   padding: 0 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .candidato p {
@@ -764,9 +815,7 @@ blockquote {
   padding: 4.5rem 5% 5rem;
   border-radius: 28px;
   text-align: center;
-  background:
-    radial-gradient(ellipse at 50% 0%, color-mix(in srgb, white 25%, transparent), transparent 60%),
-    var(--destaque);
+  background: var(--destaque);
   box-shadow: 0 30px 60px -20px color-mix(in srgb, var(--sombra) 70%, transparent);
   color: var(--profundo);
 }
@@ -783,7 +832,7 @@ blockquote {
 }
 
 .chamada h2 {
-  margin: 1rem 0 2.5rem;
+  margin: 1rem 0 1.2rem;
   font-size: clamp(2.6rem, 6vw, 4.5rem);
   color: var(--profundo);
 }
@@ -820,12 +869,18 @@ footer {
 
 .rodape-marca {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 1rem 2rem;
 }
 
 .rodape-marca .marca-simbolo {
-  height: 3.6rem;
+  height: 4rem;
+}
+
+.rodape-marca p {
+  max-width: 36rem;
+  line-height: 1.5;
 }
 
 .rodape-marca p:first-child {
@@ -1472,8 +1527,12 @@ footer,
     margin: 0.8rem 0 1.4rem;
   }
 
+  .inicio-fundo {
+    background-position: left center;
+  }
+
   .inicio-botoes {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0.6rem;
   }
 
