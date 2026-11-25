@@ -235,8 +235,8 @@ if (hemiciclo) {
   const nota = hemiciclo.querySelector(".hemiciclo-nota");
   const notaInicial = nota.textContent;
   const textos = {
-    "estudantes-12": "4 lugares para estudantes de licenciatura e mestrado, eleitos por ti. É a estes lugares que a Ser Universidade de Coimbra se candidata.",
-    "estudantes-3": "1 lugar para os estudantes de doutoramento, eleito numa votação própria.",
+    "estudantes-12": "4 lugares para os representantes dos estudantes de licenciatura e mestrado, eleitos por ti. É a estes lugares que a Ser Universidade de Coimbra se candidata.",
+    "estudantes-3": "1 lugar para os representantes dos estudantes de doutoramento, eleito numa votação própria.",
     "docentes": "18 professores e investigadores, eleitos pelos seus pares. São o maior grupo do Conselho.",
     "trabalhadores": "2 representantes dos trabalhadores não docentes e não investigadores.",
     "externos": "10 personalidades de fora da UC, escolhidas pelos membros eleitos, incluindo os estudantes."

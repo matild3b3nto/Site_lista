@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32.png">
   <link rel="apple-touch-icon" href="imagens/favicon-180.png">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
@@ -116,35 +116,23 @@
         </div>
         <div class="hemiciclo-painel">
           <div class="grupos" role="group" aria-label="Escolhe um grupo para ver os seus lugares">
-            <button type="button" class="grupo grupo-estudantes-12" data-grupo="estudantes-12"><strong>4</strong><span>Estudantes · 1.º e 2.º ciclos</span></button>
-            <button type="button" class="grupo grupo-estudantes-3" data-grupo="estudantes-3"><strong>1</strong><span>Estudante · 3.º ciclo</span></button>
-            <button type="button" class="grupo grupo-docentes" data-grupo="docentes"><strong>18</strong><span>Professores e investigadores</span></button>
+            <button type="button" class="grupo grupo-estudantes-12" data-grupo="estudantes-12"><strong>4</strong><span>Estudantes do 1.º e 2.º ciclos</span></button>
+            <button type="button" class="grupo grupo-estudantes-3" data-grupo="estudantes-3"><strong>1</strong><span>Estudante do 3.º ciclo</span></button>
+            <button type="button" class="grupo grupo-docentes" data-grupo="docentes"><strong>18</strong><span>Representantes dos professores e investigadores</span></button>
             <button type="button" class="grupo grupo-trabalhadores" data-grupo="trabalhadores"><strong>2</strong><span>Trabalhadores não docentes</span></button>
-            <button type="button" class="grupo grupo-externos" data-grupo="externos"><strong>10</strong><span>Personalidades externas</span></button>
+            <button type="button" class="grupo grupo-externos" data-grupo="externos"><strong>10</strong><span>Personalidades de reconhecido mérito externas à instituição</span></button>
           </div>
-          <p class="hemiciclo-nota" aria-live="polite">Toca num grupo para ver os seus lugares.</p>
+          <p class="hemiciclo-nota" aria-live="polite">Carrega num grupo para ver os seus lugares.</p>
         </div>
       </div>
 
       <div class="conselho-factos">
-        <article class="facto">
-          <p class="facto-numero">2 <span>anos</span></p>
-          <p class="facto-nota">de mandato para os estudantes</p>
-          <p>Os restantes membros têm mandatos de quatro anos.</p>
-        </article>
-        <article class="facto">
-          <p class="facto-numero">4 <span>reuniões</span></p>
-          <p class="facto-nota">ordinárias por ano</p>
-          <p>E extraordinárias sempre que for preciso.</p>
-        </article>
-        <article class="facto">
-          <p class="facto-numero">10</p>
-          <p class="facto-nota">membros externos</p>
-          <p>Escolhidos pelos membros eleitos, incluindo os estudantes.</p>
-        </article>
+        <div class="facto"><p class="facto-numero">2 <span>anos</span></p><p class="facto-nota">de mandato dos estudantes</p></div>
+        <div class="facto"><p class="facto-numero">4 <span>anos</span></p><p class="facto-nota">de mandato dos restantes</p></div>
+        <div class="facto"><p class="facto-numero">4 <span>reuniões</span></p><p class="facto-nota">ordinárias por ano</p></div>
       </div>
 
-      <h3 class="competencias-titulo">O que <em>decide.</em></h3>
+      <p class="competencias-titulo">E o que decide?</p>
       <div class="competencias">
         <article class="competencia">
           <h4>Elege e fiscaliza</h4>
@@ -308,7 +296,7 @@
     <a class="ligacao" href="#inicio">Voltar ao início</a>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
   <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 </body>
 </html>
