@@ -83,7 +83,7 @@ menu.querySelectorAll("a").forEach((ligacao) => {
 });
 
 const elementos = document.querySelectorAll(
-  ".bloco h2, .bloco-intro, .apresentacao-grelha, .conselho-composicao, .facto, .competencia, .candidato, .eixo, .info-cartao, .testemunhos-cartao, .testemunho, .chamada-cartao, .pagina-seguinte-cartao"
+  ".bloco h2, .bloco-intro, .apresentacao-grelha, .hemiciclo, .facto, .competencia, .candidato, .eixo, .info-cartao, .testemunhos-cartao, .testemunho, .chamada-cartao, .pagina-seguinte-cartao"
 );
 
 const observador = new IntersectionObserver((entradas) => {
@@ -227,3 +227,41 @@ async function carregarTestemunhos() {
 }
 
 carregarTestemunhos();
+
+
+const hemiciclo = document.querySelector(".hemiciclo");
+
+if (hemiciclo) {
+  const nota = hemiciclo.querySelector(".hemiciclo-nota");
+  const notaInicial = nota.textContent;
+  const textos = {
+    "estudantes-12": "4 lugares para estudantes de licenciatura e mestrado, eleitos por ti. É a estes lugares que a Ser Universidade de Coimbra se candidata.",
+    "estudantes-3": "1 lugar para os estudantes de doutoramento, eleito numa votação própria.",
+    "docentes": "18 professores e investigadores, eleitos pelos seus pares. São o maior grupo do Conselho.",
+    "trabalhadores": "2 representantes dos trabalhadores não docentes e não investigadores.",
+    "externos": "10 personalidades de fora da UC, escolhidas pelos membros eleitos, incluindo os estudantes."
+  };
+  const botoes = hemiciclo.querySelectorAll(".grupo");
+  let fixo = "";
+
+  const mostrar = (grupo) => {
+    hemiciclo.dataset.ativo = grupo;
+    nota.textContent = grupo ? textos[grupo] : notaInicial;
+    botoes.forEach((b) => b.classList.toggle("ativo", b.dataset.grupo === grupo));
+  };
+
+  botoes.forEach((botao) => {
+    const grupo = botao.dataset.grupo;
+    botao.addEventListener("mouseenter", () => mostrar(grupo));
+    botao.addEventListener("mouseleave", () => mostrar(fixo));
+    botao.addEventListener("click", () => {
+      fixo = fixo === grupo ? "" : grupo;
+      mostrar(fixo);
+    });
+  });
+
+  hemiciclo.querySelectorAll(".lugar").forEach((lugar) => {
+    lugar.addEventListener("mouseenter", () => mostrar(lugar.dataset.grupo));
+    lugar.addEventListener("mouseleave", () => mostrar(fixo));
+  });
+}

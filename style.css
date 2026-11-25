@@ -1149,101 +1149,116 @@ footer .ligacao:hover {
     color-mix(in srgb, var(--escuro) 82%, var(--profundo));
 }
 
-.conselho-composicao {
+.hemiciclo {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 4rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3rem;
   align-items: center;
   margin: 1rem 0 4.5rem;
 }
 
-.membros {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1.1rem;
-  max-width: 360px;
+.hemiciclo-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
-.membro {
-  aspect-ratio: 1;
-  transform: rotate(45deg) scale(0.62);
-  border-radius: 3px;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+.lugar {
+  transition: opacity 0.35s ease;
 }
 
-.membro-professores { background: var(--texto-suave); }
-.membro-estudantes { background: var(--destaque); box-shadow: 0 0 18px color-mix(in srgb, var(--destaque) 60%, transparent); }
-.membro-trabalhadores { background: color-mix(in srgb, var(--escuro) 60%, black); border: 1.5px solid var(--texto-suave); }
-.membro-externos { background: transparent; border: 1.5px solid var(--texto-suave); }
+.lugar[data-grupo="docentes"] { fill: var(--texto-suave); }
+.lugar[data-grupo="estudantes-12"] { fill: var(--destaque); filter: drop-shadow(0 0 6px color-mix(in srgb, var(--destaque) 70%, transparent)); }
+.lugar[data-grupo="estudantes-3"] { fill: color-mix(in srgb, var(--destaque) 55%, var(--escuro)); }
+.lugar[data-grupo="trabalhadores"] { fill: color-mix(in srgb, var(--texto) 40%, var(--escuro)); }
+.lugar[data-grupo="externos"] { fill: color-mix(in srgb, var(--texto) 22%, var(--escuro)); stroke: var(--texto); stroke-width: 2; }
 
-.composicao-visual:hover .membro { opacity: 0.35; }
-.composicao-visual:hover .membro-estudantes { opacity: 1; transform: rotate(45deg) scale(0.8); }
+.hemiciclo:not([data-ativo=""]) .lugar { opacity: 0.18; }
+.hemiciclo[data-ativo="estudantes-12"] .lugar[data-grupo="estudantes-12"],
+.hemiciclo[data-ativo="estudantes-3"] .lugar[data-grupo="estudantes-3"],
+.hemiciclo[data-ativo="docentes"] .lugar[data-grupo="docentes"],
+.hemiciclo[data-ativo="trabalhadores"] .lugar[data-grupo="trabalhadores"],
+.hemiciclo[data-ativo="externos"] .lugar[data-grupo="externos"] { opacity: 1; }
 
-.composicao-total {
-  margin-top: 1.6rem;
+.hemiciclo-total {
   font-family: var(--fonte-titulos);
-  font-size: 1.3rem;
-  color: var(--texto-suave);
+  font-size: 54px;
+  font-weight: 900;
+  fill: var(--texto);
 }
 
-.composicao-total strong {
-  font-size: 3.4rem;
+.hemiciclo-total-legenda {
+  font-family: var(--fonte-titulos);
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1;
-  color: var(--texto);
-  margin-right: 0.3rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--texto-suave);
 }
 
-.conselho .conselho-destaque {
-  font-family: var(--fonte-texto);
-  font-size: clamp(1.46rem, 2vw, 1.68rem);
-  line-height: 1.55;
-  color: var(--texto);
-}
-
-.composicao-legenda {
+.grupos {
   display: grid;
-  gap: 0.7rem;
-  margin-top: 2rem;
-  list-style: none;
+  gap: 0.6rem;
 }
 
-.composicao-legenda li {
+.grupo {
   display: flex;
-  align-items: baseline;
-  gap: 0.8rem;
-  font-size: 1.12rem;
-  color: var(--texto-suave);
-}
-
-.composicao-legenda li::before {
-  content: "";
-  flex-shrink: 0;
-  width: 9px;
-  height: 9px;
-  transform: rotate(45deg) translateY(-1px);
-}
-
-.legenda-professores::before { background: var(--texto-suave); }
-.legenda-estudantes::before { background: var(--destaque); }
-.legenda-trabalhadores::before { background: color-mix(in srgb, var(--escuro) 60%, black); border: 1.5px solid var(--texto-suave); }
-.legenda-externos::before { border: 1.5px solid var(--texto-suave); }
-
-.composicao-legenda strong {
-  min-width: 1.6rem;
-  font-family: var(--fonte-titulos);
-  font-size: 1.3rem;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--texto-suave) 18%, transparent);
+  background: color-mix(in srgb, var(--profundo) 30%, transparent);
   color: var(--texto);
+  font-family: var(--fonte-titulos);
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.legenda-estudantes strong,
-.legenda-estudantes {
-  color: var(--destaque) !important;
+.grupo strong {
+  min-width: 2.6rem;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.grupo:hover,
+.grupo.ativo {
+  transform: translateX(4px);
+  border-color: color-mix(in srgb, var(--destaque) 60%, transparent);
+  background: color-mix(in srgb, var(--texto-suave) 10%, transparent);
+}
+
+.grupo-estudantes-12,
+.grupo-estudantes-12:hover,
+.grupo-estudantes-12.ativo {
+  background: var(--destaque);
+  border-color: var(--destaque);
+  color: var(--profundo);
+}
+
+.grupo-estudantes-12.ativo {
+  border-color: var(--texto);
+}
+
+.grupo-estudantes-3 strong { color: var(--destaque); }
+
+.hemiciclo-nota {
+  min-height: 4.8em;
+  margin-top: 1.2rem;
+  font-family: var(--fonte-texto);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texto-suave);
 }
 
 .conselho-factos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin-bottom: 4.5rem;
 }
@@ -1333,6 +1348,31 @@ footer .ligacao:hover {
   font-weight: 700;
 }
 
+.competencia ul {
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+}
+
+.competencia li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--texto) 88%, transparent);
+}
+
+.competencia li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--destaque);
+}
+
 .conselho .competencia p {
   font-size: 1.23rem;
   line-height: 1.85;
@@ -1349,9 +1389,9 @@ footer .ligacao:hover {
     font-size: 1.05rem;
   }
 
-  .conselho-composicao {
+  .hemiciclo {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 }
 
@@ -1415,7 +1455,6 @@ footer,
 .migalhas,
 .indice,
 .facto-nota,
-.composicao-legenda,
 .rodape-credito {
   font-family: var(--fonte-titulos);
 }
