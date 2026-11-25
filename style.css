@@ -668,15 +668,22 @@ blockquote {
   position: relative;
   padding: 1rem 1rem 1.5rem;
   border-radius: 20px;
-  background: color-mix(in srgb, var(--profundo) 45%, transparent);
-  border: 1px solid color-mix(in srgb, var(--texto-suave) 15%, transparent);
-  transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  background: #004E2A;
+  border: 1px solid color-mix(in srgb, var(--destaque) 35%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--texto) 12%, transparent),
+    0 4px 10px rgba(0, 0, 0, 0.18),
+    0 22px 40px -18px rgba(0, 0, 0, 0.55);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .candidato:hover {
   transform: translateY(-6px);
-  border-color: color-mix(in srgb, var(--destaque) 60%, transparent);
-  background: color-mix(in srgb, var(--profundo) 60%, transparent);
+  border-color: color-mix(in srgb, var(--destaque) 70%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--texto) 16%, transparent),
+    0 8px 16px rgba(0, 0, 0, 0.22),
+    0 30px 50px -18px rgba(0, 0, 0, 0.65);
 }
 
 .candidato-foto {
@@ -687,6 +694,7 @@ blockquote {
   overflow: hidden;
   border-radius: 14px;
   background: linear-gradient(160deg, var(--escuro), var(--profundo));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--texto) 12%, transparent), 0 8px 18px -8px rgba(0, 0, 0, 0.5);
 }
 
 .candidato-foto span {
@@ -727,9 +735,9 @@ blockquote {
   max-width: none;
   padding-left: max(5%, calc((100% - 1150px) / 2 + 5%));
   background:
-    radial-gradient(circle at 85% 30%, color-mix(in srgb, var(--sombra) 60%, transparent), transparent 55%),
-    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--escuro) 70%, transparent), transparent 50%),
-    var(--profundo);
+    radial-gradient(circle at 85% 30%, color-mix(in srgb, #004E2A 70%, black), transparent 60%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--escuro) 60%, #004E2A), transparent 55%),
+    #004E2A;
 }
 
 .bloco-destaque p + p {
@@ -1256,8 +1264,9 @@ footer .ligacao:hover {
 .hemiciclo-nota {
   min-height: 4.8em;
   margin-top: 1.2rem;
+  text-align: center;
   font-family: var(--fonte-texto);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: var(--texto-suave);
 }
@@ -1320,7 +1329,7 @@ footer .ligacao:hover {
 }
 
 .competencia {
-  padding: 2.2rem;
+  padding: 1.6rem 1.8rem;
   background: color-mix(in srgb, var(--escuro) 82%, var(--profundo));
   transition: background 0.4s ease;
 }
@@ -1330,7 +1339,7 @@ footer .ligacao:hover {
 }
 
 .competencia::before {
-  content: "";
+  content: none;
   display: block;
   width: 8px;
   height: 8px;
@@ -1340,7 +1349,7 @@ footer .ligacao:hover {
 }
 
 .competencia h4 {
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.7rem;
   font-family: var(--fonte-titulos);
   font-size: 1.6rem;
   font-weight: 700;
@@ -1390,6 +1399,12 @@ footer .ligacao:hover {
   .hemiciclo {
     grid-template-columns: 1fr;
     gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hemiciclo-nota {
+    min-height: 0;
+    margin-top: 0.9rem;
   }
 }
 
@@ -1612,6 +1627,11 @@ footer,
 
   .conselho-factos {
     gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .competencia {
+    padding: 1.2rem 1.3rem;
   }
 
   .facto {
