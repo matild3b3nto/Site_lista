@@ -386,7 +386,7 @@ nav > a:hover,
   inset: 0;
   top: var(--altura-cabecalho, 6.7rem);
   z-index: -2;
-  background: url("imagens/abertura.jpg") center / cover no-repeat;
+  background: url("imagens/abertura.jpg?v=2") center / cover no-repeat;
   filter: saturate(0.75);
 }
 
