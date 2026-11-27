@@ -63,11 +63,13 @@ function medirCabecalho() {
   document.documentElement.style.setProperty("--altura-cabecalho", `${cabecalho.offsetHeight}px`);
 }
 
-new ResizeObserver(() => {
-  if (window.scrollY <= 80) medirCabecalho();
-}).observe(cabecalho, { box: "border-box" });
+new ResizeObserver(medirCabecalho).observe(cabecalho, { box: "border-box" });
 
-window.addEventListener("scroll", atualizarCabecalho);
+window.addEventListener("scroll", () => {
+  atualizarCabecalho();
+  if (window.scrollY <= 0) medirCabecalho();
+});
+window.addEventListener("load", medirCabecalho);
 ecraEstreito.addEventListener("change", atualizarCabecalho);
 atualizarCabecalho();
 medirCabecalho();
@@ -264,4 +266,32 @@ if (hemiciclo) {
     lugar.addEventListener("mouseenter", () => mostrar(lugar.dataset.grupo));
     lugar.addEventListener("mouseleave", () => mostrar(fixo));
   });
+}
+function irPara(alvo) {
+  const margem = cabecalho.offsetHeight + 16;
+  const destino = () => alvo.getBoundingClientRect().top + window.scrollY - margem;
+  window.scrollTo({ top: destino(), behavior: "smooth" });
+  [500, 1000, 1600].forEach((tempo) => {
+    setTimeout(() => {
+      if (Math.abs(alvo.getBoundingClientRect().top - margem) > 4) {
+        window.scrollTo({ top: destino(), behavior: "smooth" });
+      }
+    }, tempo);
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((ligacao) => {
+  ligacao.addEventListener("click", (evento) => {
+    const id = ligacao.getAttribute("href").slice(1);
+    const alvo = id && document.getElementById(id);
+    if (!alvo) return;
+    evento.preventDefault();
+    history.pushState(null, "", `#${id}`);
+    irPara(alvo);
+  });
+});
+
+if (location.hash) {
+  const alvoInicial = document.getElementById(location.hash.slice(1));
+  if (alvoInicial) window.addEventListener("load", () => irPara(alvoInicial));
 }
