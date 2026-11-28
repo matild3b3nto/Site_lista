@@ -295,3 +295,47 @@ if (location.hash) {
   const alvoInicial = document.getElementById(location.hash.slice(1));
   if (alvoInicial) window.addEventListener("load", () => irPara(alvoInicial));
 }
+
+
+const janela = document.querySelector(".percurso-janela");
+
+if (janela && typeof janela.showModal === "function") {
+  const cartoes = [...document.querySelectorAll(".candidato")];
+  const foto = janela.querySelector(".percurso-foto img");
+  const faculdade = janela.querySelector(".percurso-faculdade");
+  const titulo = janela.querySelector("#percurso-titulo");
+  const lista = janela.querySelector(".percurso-texto ul");
+  let atual = 0;
+
+  const mostrarPessoa = (indice) => {
+    atual = (indice + cartoes.length) % cartoes.length;
+    const cartao = cartoes[atual];
+    const img = cartao.querySelector(".candidato-foto img");
+    const detalhe = cartao.querySelector(".candidato-percurso");
+    foto.src = img ? img.src : "";
+    foto.alt = img ? img.alt : "";
+    faculdade.textContent = cartao.querySelector("p")?.textContent || "";
+    titulo.textContent = detalhe.querySelector(".percurso-nome").textContent;
+    lista.innerHTML = detalhe.querySelector("ul").innerHTML;
+  };
+
+  cartoes.forEach((cartao, indice) => {
+    cartao.querySelector(".candidato-abrir").addEventListener("click", () => {
+      mostrarPessoa(indice);
+      janela.showModal();
+    });
+  });
+
+  janela.querySelector(".percurso-fechar").addEventListener("click", () => janela.close());
+  janela.querySelector(".percurso-anterior").addEventListener("click", () => mostrarPessoa(atual - 1));
+  janela.querySelector(".percurso-seguinte").addEventListener("click", () => mostrarPessoa(atual + 1));
+
+  janela.addEventListener("click", (evento) => {
+    if (evento.target === janela) janela.close();
+  });
+
+  janela.addEventListener("keydown", (evento) => {
+    if (evento.key === "ArrowRight") mostrarPessoa(atual + 1);
+    if (evento.key === "ArrowLeft") mostrarPessoa(atual - 1);
+  });
+}

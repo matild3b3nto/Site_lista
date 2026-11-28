@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32.png">
   <link rel="apple-touch-icon" href="imagens/favicon-180.png">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body>
   <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
@@ -23,6 +23,13 @@
     <nav id="menu">
       <a href="index.html#inicio">Início</a>
       <a href="index.html#conselho-geral">Conselho Geral</a>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Programa <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="index.html#programa">Em resumo</a>
+          <a href="programa.html">Programa completo</a>
+        </div>
+      </div>
       <a href="index.html#equipa">Equipa</a>
       <div class="menu-grupo">
         <button class="menu-grupo-botao atual" aria-expanded="false">Manifesto <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -31,7 +38,6 @@
           <a href="manifesto.html">Manifesto completo</a>
         </div>
       </div>
-      <a href="index.html#programa">Programa</a>
       <a href="index.html#informacoes">Informações</a>
     </nav>
     <div class="cabecalho-acoes">
@@ -110,7 +116,7 @@
   <section class="pagina-seguinte">
     <div class="pagina-seguinte-cartao">
       <h2>Das ideias <em>à ação.</em></h2>
-      <a class="botao-pagina" href="index.html#programa">Explorar o programa</a>
+      <a class="botao-pagina" href="programa.html">Explorar o programa</a>
     </div>
   </section>
 
@@ -122,6 +128,6 @@
     <a class="ligacao" href="#">Voltar ao topo</a>
   </footer>
 
-  <script src="script.js?v=20"></script>
+  <script src="script.js?v=30"></script>
 </body>
 </html>

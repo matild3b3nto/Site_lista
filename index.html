@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32.png">
   <link rel="apple-touch-icon" href="imagens/favicon-180.png">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=30">
 </head>
 <body>
   <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
@@ -23,6 +23,13 @@
     <nav id="menu">
       <a href="#inicio">Início</a>
       <a href="#conselho-geral">Conselho Geral</a>
+      <div class="menu-grupo">
+        <button class="menu-grupo-botao" aria-expanded="false">Programa <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="submenu">
+          <a href="#programa">Em resumo</a>
+          <a href="programa.html">Programa completo</a>
+        </div>
+      </div>
       <a href="#equipa">Equipa</a>
       <div class="menu-grupo">
         <button class="menu-grupo-botao" aria-expanded="false">Manifesto <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -31,7 +38,6 @@
           <a href="manifesto.html">Manifesto completo</a>
         </div>
       </div>
-      <a href="#programa">Programa</a>
       <a href="#informacoes">Informações</a>
     </nav>
     <div class="cabecalho-acoes">
@@ -161,6 +167,50 @@
       </div>
     </section>
 
+    <section id="programa" class="bloco">
+      <p class="bloco-etiqueta">O nosso programa</p>
+      <h2>Uma visão. <em>Sete comissões.</em></h2>
+      <p class="bloco-intro">Melhorar a vida de quem estuda, reforçar a participação e construir uma UC mais justa e transparente.</p>
+      <div class="comissoes-grelha">
+        <a class="comissao-cartao" href="programa.html#acao-social-e-acompanhamento-estudantil">
+          <span class="comissao-numero">10 medidas</span>
+          <h3>Ação Social e Acompanhamento Estudantil</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#ensino-e-desenvolvimento-humano">
+          <span class="comissao-numero">8 medidas</span>
+          <h3>Ensino e Desenvolvimento Humano</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#cultura">
+          <span class="comissao-numero">6 medidas</span>
+          <h3>Cultura</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#desporto-e-saude">
+          <span class="comissao-numero">6 medidas</span>
+          <h3>Desporto e Saúde</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#sustentabilidade-e-ambiente">
+          <span class="comissao-numero">6 medidas</span>
+          <h3>Sustentabilidade e Ambiente</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#internacionalizacao-e-inovacao">
+          <span class="comissao-numero">7 medidas</span>
+          <h3>Internacionalização e Inovação</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+        <a class="comissao-cartao" href="programa.html#integracao-dos-novos-estatutos-da-uc">
+          <span class="comissao-numero">4 medidas</span>
+          <h3>Integração dos Novos Estatutos da UC</h3>
+          <span class="comissao-ver">Ver propostas</span>
+        </a>
+      </div>
+      <a class="botao-pagina" href="programa.html">Ler o programa completo</a>
+    </section>
+
     <section id="equipa" class="bloco">
       <p class="bloco-etiqueta">As pessoas</p>
       <h2>A nossa <em>equipa.</em></h2>
@@ -170,51 +220,98 @@
           <div class="candidato-foto"><img src="imagens/equipa/antonio.jpg?v=2" alt="António Lopes" loading="lazy"></div>
           <h3>António Lopes</h3>
           <p>FLUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de António Lopes"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">António Pedro Cipriano Lopes</p>
+            <ul>
+              <li>Natural de Coimbra, 23 anos</li>
+              <li>Licenciado em História com Menor em Estudos Europeus (FLUC)</li>
+              <li>Mestrando em Estudos Europeus (FLUC) a frequentar a Pós-Graduação em Direito da União Europeia (FDUC)</li>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/filipa_silva.jpg?v=2" alt="Filipa Silva" loading="lazy"></div>
           <h3>Filipa Silva</h3>
           <p>FMUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Filipa Silva"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Filipa Silva</p>
+            <ul>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/beatriz_vieira.jpg?v=2" alt="Beatriz Vieira" loading="lazy"></div>
           <h3>Beatriz Vieira</h3>
           <p>FDUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Beatriz Vieira"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Beatriz Vieira</p>
+            <ul>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/goncalo_abrantes.jpg?v=2" alt="Gonçalo Abrantes" loading="lazy"></div>
           <h3>Gonçalo Abrantes</h3>
           <p>FEUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Gonçalo Abrantes"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Gonçalo Abrantes</p>
+            <ul>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/barbara_santos.jpg?v=2" alt="Bárbara Santos" loading="lazy"></div>
           <h3>Bárbara Santos</h3>
           <p>FCTUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Bárbara Santos"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Bárbara Maria Raposo dos Santos</p>
+            <ul>
+              <li>Natural de Constância, 20 anos</li>
+              <li>Finalista da Licenciatura em Biologia (FCTUC)</li>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/martim_rodrigues.jpg?v=2" alt="Martim Rodrigues" loading="lazy"></div>
           <h3>Martim Rodrigues</h3>
           <p>FCDEFUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Martim Rodrigues"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Martim Rodrigues</p>
+            <ul>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/beatriz_amaral.jpg?v=2" alt="Beatriz Amaral" loading="lazy"></div>
           <h3>Beatriz Amaral</h3>
           <p>FFUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Beatriz Amaral"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Beatriz dos Santos Amaral</p>
+            <ul>
+              <li>Natural de Coimbra, 21 anos</li>
+              <li>A frequentar o Mestrado Integrado em Ciências Farmacêuticas (FFUC)</li>
+            </ul>
+          </div>
         </article>
         <article class="candidato">
           <div class="candidato-foto"><img src="imagens/equipa/guilherme_machado.jpg?v=2" alt="Guilherme Machado" loading="lazy"></div>
           <h3>Guilherme Machado</h3>
           <p>ESEUC</p>
+          <button class="candidato-abrir" type="button" aria-label="Ver o percurso de Guilherme Machado"><span>Ver percurso</span></button>
+          <div class="candidato-percurso" hidden>
+            <p class="percurso-nome">Guilherme Machado</p>
+            <ul>
+            </ul>
+          </div>
         </article>
       </div>
-    </section>
-
-    <section id="manifesto" class="bloco bloco-destaque">
-      <p class="bloco-etiqueta">O nosso compromisso</p>
-      <h2>Estudar aqui <em>é decidir aqui.</em></h2>
-      <p>Os estudantes são parte integrante da Universidade e devem participar ativamente na sua governação: com representação efetiva, acesso à informação e voz nos processos de decisão.</p>
-      <p>Defendemos uma Universidade próxima, acessível e exigente, que trata cada estudante como parte da solução.</p>
-      <a class="botao-pagina" href="manifesto.html">Ler o manifesto completo</a>
     </section>
 
     <section id="testemunhos" class="bloco testemunhos">
@@ -232,37 +329,12 @@
       </div>
     </section>
 
-    <section id="programa" class="bloco">
-      <p class="bloco-etiqueta">O nosso programa</p>
-      <h2>Uma visão. <em>Seis eixos de ação.</em></h2>
-      <p class="bloco-intro">Melhorar a vida de quem estuda, reforçar a participação e construir uma UC mais justa e transparente.</p>
-      <div class="programa-grelha">
-        <article class="eixo" id="eixo-custo">
-          <h3>Custo de vida</h3>
-          <p>Mais camas em residências, refeições acessíveis nas cantinas e apoio a quem vem de fora.</p>
-        </article>
-        <article class="eixo" id="eixo-ensino">
-          <h3>Ensino</h3>
-          <p>Avaliação pedagógica com consequências reais e programas atualizados.</p>
-        </article>
-        <article class="eixo" id="eixo-participacao">
-          <h3>Participação</h3>
-          <p>Estudantes ouvidos em cada decisão que os afeta, nas faculdades e na Reitoria.</p>
-        </article>
-        <article class="eixo" id="eixo-bem-estar">
-          <h3>Bem-estar</h3>
-          <p>Mais apoio psicológico, menos tempo de espera e espaços de estudo dignos.</p>
-        </article>
-        <article class="eixo" id="eixo-transparencia">
-          <h3>Transparência</h3>
-          <p>Relatórios públicos de cada reunião e contas prestadas a quem nos elegeu.</p>
-        </article>
-        <article class="eixo" id="eixo-inclusao">
-          <h3>Inclusão</h3>
-          <p>Acessibilidade em todos os edifícios e igualdade de oportunidades para todos.</p>
-        </article>
-      </div>
-      <p class="programa-fecho">Uma Universidade unida na sua missão, participada nas suas decisões e feita à medida de quem nela estuda.</p>
+    <section id="manifesto" class="bloco bloco-destaque">
+      <p class="bloco-etiqueta">O nosso compromisso</p>
+      <h2>Estudar aqui <em>é decidir aqui.</em></h2>
+      <p>Os estudantes são parte integrante da Universidade e devem participar ativamente na sua governação: com representação efetiva, acesso à informação e voz nos processos de decisão.</p>
+      <p>Defendemos uma Universidade próxima, acessível e exigente, que trata cada estudante como parte da solução.</p>
+      <a class="botao-pagina" href="manifesto.html">Ler o manifesto completo</a>
     </section>
 
     <section id="informacoes" class="bloco">
@@ -288,6 +360,23 @@
     </section>
   </main>
 
+
+  <dialog class="percurso-janela" aria-labelledby="percurso-titulo">
+    <button class="percurso-fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <div class="percurso-conteudo">
+      <div class="percurso-foto"><img src="" alt=""></div>
+      <div class="percurso-texto">
+        <p class="percurso-faculdade"></p>
+        <h3 id="percurso-titulo"></h3>
+        <ul></ul>
+      </div>
+    </div>
+    <div class="percurso-navegacao">
+      <button class="percurso-anterior" type="button" aria-label="Pessoa anterior"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="percurso-seguinte" type="button" aria-label="Pessoa seguinte"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </dialog>
+
   <footer>
     <div class="rodape-marca">
       <img class="marca-simbolo" src="imagens/logo-cor.png" alt="Ser Universidade de Coimbra">
@@ -296,7 +385,7 @@
     <a class="ligacao" href="#inicio">Voltar ao início</a>
   </footer>
 
-  <script src="script.js?v=20"></script>
+  <script src="script.js?v=30"></script>
   <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
 </body>
 </html>
